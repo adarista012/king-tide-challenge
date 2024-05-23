@@ -1,7 +1,6 @@
 import 'package:king_tide_challenge/app/app.dart';
+import 'package:king_tide_challenge/app/app_navigation.dart';
 import 'package:mobx/mobx.dart';
-
-import 'package:king_tide_challenge/app/navigation.dart';
 
 part 'splash.g.dart';
 
@@ -12,7 +11,7 @@ abstract class SplashBase with Store {
   String? routeName;
 
   @observable
-  String title = 'Splash screen';
+  String title = 'King Tide';
 
   SplashBase() {
     _init();

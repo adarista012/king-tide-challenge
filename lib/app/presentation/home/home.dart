@@ -1,4 +1,4 @@
-import 'package:king_tide_challenge/app/navigation.dart';
+import 'package:king_tide_challenge/app/app_navigation.dart';
 import 'package:mobx/mobx.dart';
 
 // This is the class used by rest of your codebase
