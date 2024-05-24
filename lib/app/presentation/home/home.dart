@@ -1,21 +1,37 @@
-import 'package:king_tide_challenge/app/app_navigation.dart';
+import 'package:king_tide_challenge/app/domain/repositories/pokemon_repository.dart';
 import 'package:mobx/mobx.dart';
 
-// This is the class used by rest of your codebase
 part 'home.g.dart';
 
-class Home = HomeBase with _$Home;
+class Home extends _HomeBase with _$Home {
+  Home(super.pokemonRepository);
+}
 
-abstract class HomeBase with Store {
-  @observable
-  String? routeName;
+enum BaseState { loading, loaded, error }
 
-  HomeBase() {
-    _init();
+abstract class _HomeBase with Store {
+  final PokemonRepository _pokemonRepository;
+
+  _HomeBase(this._pokemonRepository) {
+    getPokemons();
   }
 
-  _init() async {
-    await Future.delayed(const Duration(microseconds: 2124));
-    routeName = Routes.HOME;
+  @observable
+  ObservableFuture<List>? pokemonsFuture;
+
+  @computed
+  BaseState get state {
+    if (pokemonsFuture == null ||
+        pokemonsFuture!.status == FutureStatus.rejected) {
+      return BaseState.error;
+    }
+    return pokemonsFuture?.status == FutureStatus.pending
+        ? BaseState.loading
+        : BaseState.loaded;
+  }
+
+  @action
+  Future getPokemons() async {
+    pokemonsFuture = ObservableFuture(_pokemonRepository.fetchPokemons());
   }
 }

@@ -25,26 +25,10 @@ mixin _$Splash on SplashBase, Store {
     });
   }
 
-  late final _$titleAtom = Atom(name: 'SplashBase.title', context: context);
-
-  @override
-  String get title {
-    _$titleAtom.reportRead();
-    return super.title;
-  }
-
-  @override
-  set title(String value) {
-    _$titleAtom.reportWrite(value, super.title, () {
-      super.title = value;
-    });
-  }
-
   @override
   String toString() {
     return '''
-routeName: ${routeName},
-title: ${title}
+routeName: ${routeName}
     ''';
   }
 }
