@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:king_tide_challenge/app/app_styles.dart';
-import 'package:king_tide_challenge/app/presentation/splash/splash.dart';
+import 'package:king_tide_challenge/app/presentation/splash/splash_store.dart';
 import 'package:mobx/mobx.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final Splash splash = Splash();
+  final SplashStore _splashStore = SplashStore();
   List<ReactionDisposer> _disposers = [];
 
   @override
@@ -34,7 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void didChangeDependencies() {
     _disposers = [
-      reaction((_) => splash.routeName, (route) => Get.offNamed(route!)),
+      reaction(
+          (_) => _splashStore.routeName, (route) => Get.offAllNamed(route!)),
     ];
     super.didChangeDependencies();
   }

@@ -1,9 +1,9 @@
 import 'package:king_tide_challenge/app/app_navigation.dart';
 import 'package:mobx/mobx.dart';
 
-part 'splash.g.dart';
+part 'splash_store.g.dart';
 
-class Splash = SplashBase with _$Splash;
+class SplashStore = SplashBase with _$SplashStore;
 
 abstract class SplashBase with Store {
   @observable

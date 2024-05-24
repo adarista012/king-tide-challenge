@@ -1,4 +1,5 @@
 import 'package:king_tide_challenge/app/data/source/remote/pokemon_api.dart';
+import 'package:king_tide_challenge/app/domain/models/pokemon.dart';
 import 'package:king_tide_challenge/app/domain/repositories/pokemon_repository.dart';
 
 class PokemonRepositoryImpl extends PokemonRepository {
@@ -6,13 +7,12 @@ class PokemonRepositoryImpl extends PokemonRepository {
 
   PokemonRepositoryImpl(this._pokemonApi);
   @override
-  Future fetchPokemonDetail(String id) {
-    // TODO: implement fetchPokemonDetail
-    throw UnimplementedError();
+  Future fetchPokemonDetail(Pokemon pokemon) {
+    return _pokemonApi.fetchPokemonDetails(pokemon);
   }
 
   @override
-  Future<List> fetchPokemons() async {
+  Future<List<Pokemon>> fetchPokemons() async {
     return _pokemonApi.fetchPokemons();
   }
 }

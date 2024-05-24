@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:king_tide_challenge/app/app_colors.dart';
 import 'package:king_tide_challenge/app/app_navigation.dart';
+import 'package:king_tide_challenge/app/domain/models/pokemon.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/pokemon_id.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/pokemon_image.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/pokemon_name.dart';
 
-Widget pokemonItem(String name, int id) {
+Widget pokemonItem(Pokemon pokemon) {
   return Stack(
     alignment: Alignment.center,
     children: [
       MaterialButton(
-        onPressed: () {
-          Get.toNamed(Routes.POKEMON_DETAIL);
-        },
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(48),
+        onPressed: () => Get.toNamed(
+          Routes.POKEMON_DETAIL,
+          arguments: pokemon,
         ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
         padding: EdgeInsets.zero,
         child: Container(
           width: 220,
@@ -28,11 +28,11 @@ Widget pokemonItem(String name, int id) {
             borderRadius: BorderRadius.circular(48),
           ),
           margin: const EdgeInsets.all(8.0),
-          child: pokemonName(name),
+          child: pokemonName(pokemon),
         ),
       ),
-      pokemonImage(id),
-      pokemonId(id),
+      pokemonImage(pokemon),
+      pokemonId(pokemon.id),
     ],
   );
 }

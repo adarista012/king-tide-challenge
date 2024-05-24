@@ -7,6 +7,11 @@ abstract class AppStyles {
     fontWeight: FontWeight.bold,
     fontSize: 28.0,
   );
+  static TextStyle appBarTitle = const TextStyle(
+    fontSize: 28.0,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 1.6,
+  );
 
   static BoxDecoration gradientDecoration = const BoxDecoration(
     gradient: LinearGradient(

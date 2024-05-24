@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:king_tide_challenge/app/domain/models/pokemon.dart';
 
-Widget pokemonImage(int id) {
+Widget pokemonImage(Pokemon pokemon) {
   return Positioned(
     left: 0,
     top: 0,
     child: Column(
       children: [
         SvgPicture.network(
-          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/$id.svg',
-          semanticsLabel: id.toString(),
+          pokemon.imageUrl,
+          semanticsLabel: pokemon.name,
           height: 200,
           width: 200,
         ),

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get/get.dart';
-import 'package:king_tide_challenge/app/presentation/home/home.dart';
+import 'package:king_tide_challenge/app/presentation/home/home_store.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/build_success.dart';
 import 'package:king_tide_challenge/app/presentation/widgets/build_error.dart';
 import 'package:king_tide_challenge/app/presentation/widgets/build_loading.dart';
@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final Home _home = Get.find<Home>();
+  final HomeStore _homeStore = Get.find();
   List<ReactionDisposer> _disposers = [];
 
   @override
@@ -24,13 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Observer(
         builder: (_) {
-          switch (_home.state) {
+          switch (_homeStore.state) {
             case BaseState.error:
               return buildError();
             case BaseState.loading:
               return buildLoading();
             case BaseState.loaded:
-              return buildSuccess(_home.pokemonsFuture!.value!);
+              return buildSuccess(_homeStore.pokemonsFuture!.value!);
           }
         },
       ),
@@ -42,9 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.didChangeDependencies();
     _disposers = [
       when(
-        (_) => _home.pokemonsFuture?.status == FutureStatus.rejected,
+        (_) => _homeStore.pokemonsFuture?.status == FutureStatus.rejected,
         () => Get.showSnackbar(
-          GetSnackBar(message: _home.pokemonsFuture?.error.toString()),
+          GetSnackBar(message: _homeStore.pokemonsFuture?.error.toString()),
         ),
       ),
     ];
