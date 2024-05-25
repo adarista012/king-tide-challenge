@@ -19,8 +19,8 @@ Widget pokemonItem(Pokemon pokemon) {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
         padding: EdgeInsets.zero,
         child: Container(
-          width: 220,
-          height: 280,
+          width: 240,
+          height: 300,
           alignment: Alignment.bottomCenter,
           padding: const EdgeInsets.only(bottom: 64.0),
           decoration: BoxDecoration(

@@ -11,8 +11,8 @@ Widget pokemonImage(Pokemon pokemon) {
         SvgPicture.network(
           pokemon.imageUrl,
           semanticsLabel: pokemon.name,
-          height: 200,
-          width: 200,
+          height: 220,
+          width: 220,
         ),
         Container(
           height: 2,

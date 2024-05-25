@@ -3,7 +3,7 @@ import 'package:king_tide_challenge/app/app_colors.dart';
 
 Widget pokemonId(int id) {
   return Positioned(
-    bottom: 32,
+    bottom: 16,
     child: Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -22,8 +22,8 @@ Widget pokemonId(int id) {
           ),
         ],
       ),
-      height: 80,
-      width: 80,
+      height: 88,
+      width: 88,
       child: Text(
         id.toString(),
         style: const TextStyle(

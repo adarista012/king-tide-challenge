@@ -32,6 +32,21 @@ mixin _$HomeStore on _HomeBase, Store {
     });
   }
 
+  late final _$filterAtom = Atom(name: '_HomeBase.filter', context: context);
+
+  @override
+  VisibilityFilter get filter {
+    _$filterAtom.reportRead();
+    return super.filter;
+  }
+
+  @override
+  set filter(VisibilityFilter value) {
+    _$filterAtom.reportWrite(value, super.filter, () {
+      super.filter = value;
+    });
+  }
+
   late final _$getPokemonsAsyncAction =
       AsyncAction('_HomeBase.getPokemons', context: context);
 
@@ -40,10 +55,25 @@ mixin _$HomeStore on _HomeBase, Store {
     return _$getPokemonsAsyncAction.run(() => super.getPokemons());
   }
 
+  late final _$_HomeBaseActionController =
+      ActionController(name: '_HomeBase', context: context);
+
+  @override
+  void changeVisibilityFilter() {
+    final _$actionInfo = _$_HomeBaseActionController.startAction(
+        name: '_HomeBase.changeVisibilityFilter');
+    try {
+      return super.changeVisibilityFilter();
+    } finally {
+      _$_HomeBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
 pokemonsFuture: ${pokemonsFuture},
+filter: ${filter},
 state: ${state}
     ''';
   }

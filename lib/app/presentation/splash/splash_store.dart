@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:king_tide_challenge/app/app_navigation.dart';
 import 'package:mobx/mobx.dart';
 
@@ -9,6 +10,9 @@ abstract class SplashBase with Store {
   @observable
   String? routeName;
 
+  @observable
+  String image = 'assets/images/logo.png';
+
   SplashBase() {
     _init();
   }
@@ -16,5 +20,6 @@ abstract class SplashBase with Store {
   _init() async {
     routeName = await Future.delayed(
         const Duration(milliseconds: 2124), () => Routes.HOME);
+    Get.offAllNamed(routeName!);
   }
 }

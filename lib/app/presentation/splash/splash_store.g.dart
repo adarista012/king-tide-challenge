@@ -25,10 +25,26 @@ mixin _$SplashStore on SplashBase, Store {
     });
   }
 
+  late final _$imageAtom = Atom(name: 'SplashBase.image', context: context);
+
+  @override
+  String get image {
+    _$imageAtom.reportRead();
+    return super.image;
+  }
+
+  @override
+  set image(String value) {
+    _$imageAtom.reportWrite(value, super.image, () {
+      super.image = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-routeName: ${routeName}
+routeName: ${routeName},
+image: ${image}
     ''';
   }
 }

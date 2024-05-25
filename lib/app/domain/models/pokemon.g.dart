@@ -115,6 +115,22 @@ mixin _$Pokemon on _Pokemon, Store {
     });
   }
 
+  late final _$characteristicsAtom =
+      Atom(name: '_Pokemon.characteristics', context: context);
+
+  @override
+  List<String>? get characteristics {
+    _$characteristicsAtom.reportRead();
+    return super.characteristics;
+  }
+
+  @override
+  set characteristics(List<String>? value) {
+    _$characteristicsAtom.reportWrite(value, super.characteristics, () {
+      super.characteristics = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
@@ -124,7 +140,8 @@ imageUrl: ${imageUrl},
 favorite: ${favorite},
 habitat: ${habitat},
 color: ${color},
-abilities: ${abilities}
+abilities: ${abilities},
+characteristics: ${characteristics}
     ''';
   }
 }
