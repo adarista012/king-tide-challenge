@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:king_tide_challenge/app/app_colors.dart';
+import 'package:king_tide_challenge/app/app_navigation.dart';
 
 Widget buttonAR(double width) {
   return Positioned(
@@ -9,7 +11,7 @@ Widget buttonAR(double width) {
       child: MaterialButton(
         color: Colors.red,
         minWidth: width - 16,
-        onPressed: () {},
+        onPressed: () => Get.toNamed(Routes.POKEMON_AR),
         child: const Row(
           children: [
             Text(

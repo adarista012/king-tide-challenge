@@ -15,7 +15,7 @@ class Header extends StatelessWidget {
 Widget header(VisibilityFilter filter, void Function()? onPressed) {
   return Container(
     alignment: Alignment.bottomCenter,
-    height: 224,
+    height: 234,
     margin: const EdgeInsets.only(bottom: 40.0),
     padding: const EdgeInsets.only(top: 60),
     child: Column(

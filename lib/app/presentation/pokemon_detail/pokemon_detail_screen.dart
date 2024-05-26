@@ -25,7 +25,8 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
     final double height = MediaQuery.sizeOf(context).height;
     final double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      appBar: AppBar(title: appBarTitle(_pokemonStore.pokemon.name)),
+      appBar: AppBar(
+          title: appBarTitle(_pokemonStore.pokemon.name), centerTitle: true),
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -38,7 +39,10 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                   height: height / 1.6,
                   width: MediaQuery.sizeOf(context).width,
                   decoration: AppStyles.gradientDecoration.copyWith(
-                    borderRadius: BorderRadius.circular(28.0),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(28.0),
+                      topRight: Radius.circular(28.0),
+                    ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
