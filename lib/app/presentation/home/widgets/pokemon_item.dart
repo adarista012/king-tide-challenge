@@ -11,28 +11,26 @@ Widget pokemonItem(Pokemon pokemon) {
   return Stack(
     alignment: Alignment.center,
     children: [
-      MaterialButton(
-        onPressed: () => Get.toNamed(
-          Routes.POKEMON_DETAIL,
-          arguments: pokemon,
+      Container(
+        width: 240,
+        height: 300,
+        alignment: Alignment.bottomCenter,
+        padding: const EdgeInsets.only(bottom: 64.0),
+        decoration: BoxDecoration(
+          color: AppColors.white.withOpacity(0.88),
+          borderRadius: BorderRadius.circular(48),
         ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
-        padding: EdgeInsets.zero,
-        child: Container(
-          width: 240,
-          height: 300,
-          alignment: Alignment.bottomCenter,
-          padding: const EdgeInsets.only(bottom: 64.0),
-          decoration: BoxDecoration(
-            color: AppColors.white.withOpacity(0.88),
-            borderRadius: BorderRadius.circular(48),
-          ),
-          margin: const EdgeInsets.all(8.0),
-          child: pokemonName(pokemon),
-        ),
+        margin: const EdgeInsets.all(8.0),
+        child: pokemonName(pokemon),
       ),
       pokemonImage(pokemon),
       pokemonId(pokemon.id),
+      MaterialButton(
+        onPressed: () => Get.toNamed(Routes.POKEMON_DETAIL, arguments: pokemon),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
+        padding: const EdgeInsets.all(4.0),
+        child: const SizedBox(width: 240, height: 300),
+      ),
     ],
   );
 }

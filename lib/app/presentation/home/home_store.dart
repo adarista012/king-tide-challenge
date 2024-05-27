@@ -38,7 +38,7 @@ abstract class _HomeBase with Store {
     isLoading = true;
     await _pokemonRepository.fetchGenerations();
     maxLength = _pokemonRepository.getMaxLength();
-    getPokemons();
+    await getPokemons();
     isLoading = false;
   }
 

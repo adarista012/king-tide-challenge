@@ -27,17 +27,29 @@ Widget header(VisibilityFilter filter, void Function()? onPressed) {
                 ? IconButton(
                     onPressed: onPressed,
                     icon: const Icon(
-                      Icons.filter_alt,
-                      color: AppColors.white,
-                    ),
-                  )
+                      Icons.favorite,
+                      color: Colors.red,
+                      size: 40.0,
+                    )
+
+                    // Icon(
+                    //   Icons.filter_alt,
+                    //   color: AppColors.white,
+                    // ),
+                    )
                 : IconButton(
                     onPressed: onPressed,
                     icon: const Icon(
-                      Icons.filter_alt_off,
+                      Icons.favorite_border,
                       color: AppColors.white,
+                      size: 40.0,
+                    )
+
+                    // Icon(
+                    //   Icons.filter_alt_off,
+                    //   color: AppColors.white,
+                    // ),
                     ),
-                  ),
           ],
         ),
         Text(
