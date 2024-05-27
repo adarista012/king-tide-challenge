@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:king_tide_challenge/app/presentation/splash/splash_store.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -6,7 +7,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SplashStore splashStore = SplashStore();
+    final SplashStore splashStore = Get.find();
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.inverseSurface,
       body: Center(

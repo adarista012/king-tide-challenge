@@ -7,6 +7,7 @@ class Pokemon extends _Pokemon with _$Pokemon {
       {required super.id,
       required super.name,
       required super.imageUrl,
+      required super.generation,
       required super.favorite});
 }
 
@@ -19,6 +20,9 @@ abstract class _Pokemon with Store {
 
   @observable
   String imageUrl;
+
+  @observable
+  String generation;
 
   @observable
   bool favorite = false;
@@ -39,6 +43,7 @@ abstract class _Pokemon with Store {
     required this.id,
     required this.name,
     required this.imageUrl,
+    required this.generation,
     required this.favorite,
   });
 }

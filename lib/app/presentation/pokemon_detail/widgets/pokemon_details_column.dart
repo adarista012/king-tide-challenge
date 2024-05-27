@@ -12,6 +12,7 @@ Widget pokemonDetailsColumn(Pokemon pokemon) {
     child: Column(
       children: [
         pokemonDetailsRow('POKEMON ID', pokemon.id.toString()),
+        pokemonDetailsRow('POKEMON GENERATION', pokemon.generation),
         pokemonDetailsRow('POKEMON COLOR', pokemon.color!.capitalize!),
         pokemonDetailsRow('POKEMON HABITAT', pokemon.habitat!.capitalize!),
         Column(

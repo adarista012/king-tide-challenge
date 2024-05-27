@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:king_tide_challenge/app/app_styles.dart';
 import 'package:king_tide_challenge/app/presentation/pokemon_detail/pokemon_detail_store.dart';
 import 'package:king_tide_challenge/app/presentation/pokemon_detail/widgets/app_bar_title.dart';
-import 'package:king_tide_challenge/app/presentation/pokemon_detail/widgets/button_ar.dart';
 import 'package:king_tide_challenge/app/presentation/pokemon_detail/widgets/button_favorite.dart';
 import 'package:king_tide_challenge/app/presentation/pokemon_detail/widgets/loading_details.dart';
 import 'package:king_tide_challenge/app/presentation/pokemon_detail/widgets/pokemon_details_column.dart';
@@ -23,7 +22,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.sizeOf(context).height;
-    final double width = MediaQuery.sizeOf(context).width;
+    // final double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: AppBar(
           title: appBarTitle(_pokemonStore.pokemon.name), centerTitle: true),
@@ -64,7 +63,6 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
             ),
           ),
           pokemonImageLarge(_pokemonStore.pokemon),
-          buttonAR(width),
         ],
       ),
     );

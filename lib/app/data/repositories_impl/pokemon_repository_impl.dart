@@ -7,12 +7,16 @@ class PokemonRepositoryImpl extends PokemonRepository {
 
   PokemonRepositoryImpl(this._pokemonApi);
   @override
-  Future fetchPokemonDetail(Pokemon pokemon) {
-    return _pokemonApi.fetchPokemonDetails(pokemon);
-  }
+  Future fetchPokemonDetail(Pokemon pokemon) async =>
+      _pokemonApi.fetchPokemonDetails(pokemon);
 
   @override
-  Future<List<Pokemon>> fetchPokemons() async {
-    return _pokemonApi.fetchPokemons();
-  }
+  Future<List<Pokemon>> fetchPokemons(int length) async =>
+      _pokemonApi.fetchPokemons(length);
+
+  @override
+  Future fetchGenerations() async => _pokemonApi.fetchGenerations();
+
+  @override
+  int getMaxLength() => _pokemonApi.maxLength();
 }
