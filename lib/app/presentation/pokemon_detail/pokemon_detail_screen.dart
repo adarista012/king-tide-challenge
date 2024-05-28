@@ -21,6 +21,8 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final height = MediaQuery.sizeOf(context).height;
     return Scaffold(
       appBar: AppBar(
         title: appBarTitle(_pokemonStore.pokemon.name),
@@ -37,7 +39,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
               _pokemonStore.pokemon,
               _pokemonStore.markAsFavorite,
             ),
-            pokemonImageLarge(_pokemonStore.pokemon),
+            pokemonImageLarge(_pokemonStore.pokemon, height, width),
             const SizedBox(height: 32.0),
             Observer(
               builder: (_) {

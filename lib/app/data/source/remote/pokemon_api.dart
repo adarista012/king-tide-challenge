@@ -21,7 +21,7 @@ class PokemonApi {
       if (length < maxLength) {
         String query = generatorQueryFetchPokemons(generation, length + 1);
         var response = await dio.post(AppConstants.URL, data: {'query': query});
-        List<dynamic> data = response.data['data']['gen3_species'];
+        List data = response.data['data']['gen3_species'];
         list.addAll(
           data.map(
             (e) => Pokemon(

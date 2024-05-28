@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:king_tide_challenge/app/app_colors.dart';
 import 'package:king_tide_challenge/app/presentation/home/home_screen.dart';
@@ -8,7 +9,9 @@ Widget header() {
     flex: 4,
     child: Container(
       alignment: Alignment.bottomCenter,
-      padding: const EdgeInsets.only(top: 60),
+      padding: EdgeInsets.only(
+        top: defaultTargetPlatform == TargetPlatform.iOS ? 60 : 20,
+      ),
       child: Column(
         children: [
           Row(
