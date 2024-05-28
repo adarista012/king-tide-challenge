@@ -1,7 +1,7 @@
 # King Tide Challenge
 
 <h1 style="color:orange">King Tide Challenge</h1>
-
+<span style="color:blue">some <em>blue</em> text</span>
 This is the first version of Pokemon King Tide
 
 ## About this project
