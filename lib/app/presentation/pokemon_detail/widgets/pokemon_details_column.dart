@@ -11,15 +11,20 @@ Widget pokemonDetailsColumn(Pokemon pokemon) {
     padding: const EdgeInsets.all(8.0),
     child: Column(
       children: [
-        pokemonDetailsRow('POKEMON ID', pokemon.id.toString()),
+        pokemonDetailsRow('POKEMON ID', "# ${pokemon.id.toString()}"),
         pokemonDetailsRow('POKEMON GENERATION', pokemon.generation),
         pokemonDetailsRow('POKEMON COLOR', pokemon.color!.capitalize!),
         pokemonDetailsRow('POKEMON HABITAT', pokemon.habitat!.capitalize!),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('POKEMON ABILITIES: ',
-                style: TextStyle(color: AppColors.white)),
+            const Text(
+              'POKEMON ABILITIES: ',
+              style: TextStyle(
+                color: AppColors.brown,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
             SizedBox(
               height: 40.0,
               child: ListView(
@@ -34,8 +39,11 @@ Widget pokemonDetailsColumn(Pokemon pokemon) {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('POKEMON CHARACTERISTICS: ',
-                style: TextStyle(color: AppColors.white)),
+            const Text(
+              'POKEMON CHARACTERISTICS: ',
+              style: TextStyle(
+                  color: AppColors.brown, fontWeight: FontWeight.w600),
+            ),
             SizedBox(
               height: 40.0,
               child: ListView(

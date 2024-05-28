@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:king_tide_challenge/app/app_colors.dart';
+import 'package:king_tide_challenge/app/presentation/home/home_screen.dart';
 import 'package:king_tide_challenge/app/presentation/home/home_store.dart';
 
-class Header extends StatelessWidget {
-  const Header({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-Widget header(VisibilityFilter filter, void Function()? onPressed) {
+Widget header() {
   return Expanded(
     flex: 4,
     child: Container(
@@ -22,9 +14,9 @@ Widget header(VisibilityFilter filter, void Function()? onPressed) {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              filter == VisibilityFilter.favorites
+              homeStore.filter == VisibilityFilter.favorites
                   ? IconButton(
-                      onPressed: onPressed,
+                      onPressed: homeStore.changeVisibilityFilter,
                       icon: const Icon(
                         Icons.favorite,
                         color: Colors.red,
@@ -37,7 +29,7 @@ Widget header(VisibilityFilter filter, void Function()? onPressed) {
                       // ),
                       )
                   : IconButton(
-                      onPressed: onPressed,
+                      onPressed: homeStore.changeVisibilityFilter,
                       icon: const Icon(
                         Icons.favorite_border,
                         color: AppColors.white,

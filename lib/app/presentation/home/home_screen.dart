@@ -7,6 +7,7 @@ import 'package:king_tide_challenge/app/presentation/home/widgets/footer.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/header.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/item_loading.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/pokemon_card.dart';
+import 'package:king_tide_challenge/app/presentation/home/widgets/pokemon_list.dart';
 import 'package:king_tide_challenge/app/presentation/widgets/build_loading.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: height,
                 child: Column(
                   children: [
-                    header(homeStore.filter, homeStore.changeVisibilityFilter),
+                    header(),
                     Expanded(
                       flex: 6,
                       child: Container(
@@ -58,13 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           : Container();
                                 },
                               )
-                            : ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: homeStore.pokemonsFuture
-                                    .where((p) => p.favorite == true)
-                                    .map((p) => pokemonCard(p, width, height))
-                                    .toList(),
-                              ),
+                            : pokemonsFavoritesList(width, height),
                       ),
                     ),
                     footer(),

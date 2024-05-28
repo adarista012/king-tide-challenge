@@ -6,24 +6,19 @@ import 'package:king_tide_challenge/app/domain/models/pokemon.dart';
 Widget buttonFavorite(Pokemon pokemon, Function()? onPressed) {
   return Observer(
     builder: (_) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          IconButton(
-            onPressed: onPressed,
-            icon: pokemon.favorite
-                ? const Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                    size: 40.0,
-                  )
-                : const Icon(
-                    Icons.favorite_border,
-                    color: AppColors.white,
-                    size: 40.0,
-                  ),
-          ),
-        ],
+      return IconButton(
+        onPressed: onPressed,
+        icon: pokemon.favorite
+            ? const Icon(
+                Icons.favorite,
+                color: AppColors.pink,
+                size: 40.0,
+              )
+            : const Icon(
+                Icons.favorite_border,
+                color: AppColors.pink,
+                size: 40.0,
+              ),
       );
     },
   );
