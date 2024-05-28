@@ -38,3 +38,6 @@ flutter pub get
 flutter pub run build_runner build
 flutter build ios
 ```
+
+![ezgif com-speed](https://github.com/adarista012/king-tide-challenge/assets/74845162/901b0871-8711-4203-875d-2de7d253bbfb)
+
