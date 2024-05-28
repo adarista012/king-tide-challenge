@@ -27,6 +27,8 @@ flutter pub run build_runner watch
 
 ## build an appbundle (DEVELOPMENT) for firebase app distribution
 
+$${\color(purple)build an appbundle (DEVELOPMENT) for firebase app distribution}$$
+
 <h3 style="color:tomato;">build an appbundle (DEVELOPMENT) for firebase app distribution</h3>
 
 ```shell
@@ -37,6 +39,8 @@ flutter build appbundle
 ```
 
 ## build for iOS (DEVELOPMENT) for testflight
+
+$${\color(blue)build for iOS (DEVELOPMENT) for testflight}$$
 
 ```shell
 flutter clean
