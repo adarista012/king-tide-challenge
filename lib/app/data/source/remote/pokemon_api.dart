@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:king_tide_challenge/app/app_constants.dart';
 import 'package:king_tide_challenge/app/data/source/helpers/generator_img_url.dart';
 import 'package:king_tide_challenge/app/data/source/helpers/generator_query_fetch_details.dart';
+import 'package:king_tide_challenge/app/data/source/helpers/generator_query_fetch_generations.dart';
 import 'package:king_tide_challenge/app/data/source/helpers/generator_query_fetch_pokemons.dart';
 import 'package:king_tide_challenge/app/domain/models/pokemon.dart';
 
@@ -67,7 +68,7 @@ class PokemonApi {
   }
 
   Future fetchGenerations() async {
-    String query = AppConstants.QUERY_FETCH_GENERATIONS;
+    String query = generatorQueryFetchGenerations();
     try {
       var response = await dio.post(AppConstants.URL, data: {'query': query});
       final List list = response.data['data']['generations'];

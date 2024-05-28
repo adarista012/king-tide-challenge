@@ -33,20 +33,25 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
         height: double.infinity,
         width: double.infinity,
         color: AppColors.yellow,
-        child: Column(
+        child: Stack(
           children: [
             pokemonDetailHeader(
               _pokemonStore.pokemon,
               _pokemonStore.markAsFavorite,
             ),
-            pokemonImageLarge(_pokemonStore.pokemon, height, width),
-            const SizedBox(height: 32.0),
-            Observer(
-              builder: (_) {
-                return _pokemonStore.pokemon.color == null
-                    ? loadingDetails()
-                    : pokemonDetailsColumn(_pokemonStore.pokemon);
-              },
+            Column(
+              children: [
+                Expanded(child: Container()),
+                pokemonImageLarge(_pokemonStore.pokemon, height, width),
+                const SizedBox(height: 8.0),
+                Observer(
+                  builder: (_) {
+                    return _pokemonStore.pokemon.color == null
+                        ? loadingDetails()
+                        : pokemonDetailsColumn(_pokemonStore.pokemon);
+                  },
+                ),
+              ],
             ),
           ],
         ),

@@ -54,6 +54,22 @@ mixin _$Pokemon on _Pokemon, Store {
     });
   }
 
+  late final _$generationAtom =
+      Atom(name: '_Pokemon.generation', context: context);
+
+  @override
+  String get generation {
+    _$generationAtom.reportRead();
+    return super.generation;
+  }
+
+  @override
+  set generation(String value) {
+    _$generationAtom.reportWrite(value, super.generation, () {
+      super.generation = value;
+    });
+  }
+
   late final _$favoriteAtom = Atom(name: '_Pokemon.favorite', context: context);
 
   @override
@@ -66,6 +82,21 @@ mixin _$Pokemon on _Pokemon, Store {
   set favorite(bool value) {
     _$favoriteAtom.reportWrite(value, super.favorite, () {
       super.favorite = value;
+    });
+  }
+
+  late final _$caughtAtom = Atom(name: '_Pokemon.caught', context: context);
+
+  @override
+  int get caught {
+    _$caughtAtom.reportRead();
+    return super.caught;
+  }
+
+  @override
+  set caught(int value) {
+    _$caughtAtom.reportWrite(value, super.caught, () {
+      super.caught = value;
     });
   }
 
@@ -137,7 +168,9 @@ mixin _$Pokemon on _Pokemon, Store {
 id: ${id},
 name: ${name},
 imageUrl: ${imageUrl},
+generation: ${generation},
 favorite: ${favorite},
+caught: ${caught},
 habitat: ${habitat},
 color: ${color},
 abilities: ${abilities},

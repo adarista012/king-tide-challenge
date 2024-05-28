@@ -56,18 +56,50 @@ mixin _$HomeStore on _HomeBase, Store {
     });
   }
 
+  late final _$maxLengthAtom =
+      Atom(name: '_HomeBase.maxLength', context: context);
+
+  @override
+  int get maxLength {
+    _$maxLengthAtom.reportRead();
+    return super.maxLength;
+  }
+
+  @override
+  set maxLength(int value) {
+    _$maxLengthAtom.reportWrite(value, super.maxLength, () {
+      super.maxLength = value;
+    });
+  }
+
   late final _$filterAtom = Atom(name: '_HomeBase.filter', context: context);
 
   @override
-  VisibilityFilter get filter {
+  FavoriteFilter get filter {
     _$filterAtom.reportRead();
     return super.filter;
   }
 
   @override
-  set filter(VisibilityFilter value) {
+  set filter(FavoriteFilter value) {
     _$filterAtom.reportWrite(value, super.filter, () {
       super.filter = value;
+    });
+  }
+
+  late final _$caughtFilterAtom =
+      Atom(name: '_HomeBase.caughtFilter', context: context);
+
+  @override
+  CaughtFilter get caughtFilter {
+    _$caughtFilterAtom.reportRead();
+    return super.caughtFilter;
+  }
+
+  @override
+  set caughtFilter(CaughtFilter value) {
+    _$caughtFilterAtom.reportWrite(value, super.caughtFilter, () {
+      super.caughtFilter = value;
     });
   }
 
@@ -83,11 +115,22 @@ mixin _$HomeStore on _HomeBase, Store {
       ActionController(name: '_HomeBase', context: context);
 
   @override
-  void changeVisibilityFilter() {
+  void changeFavoriteFilter() {
     final _$actionInfo = _$_HomeBaseActionController.startAction(
-        name: '_HomeBase.changeVisibilityFilter');
+        name: '_HomeBase.changeFavoriteFilter');
     try {
-      return super.changeVisibilityFilter();
+      return super.changeFavoriteFilter();
+    } finally {
+      _$_HomeBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void changeCaughtFilter() {
+    final _$actionInfo = _$_HomeBaseActionController.startAction(
+        name: '_HomeBase.changeCaughtFilter');
+    try {
+      return super.changeCaughtFilter();
     } finally {
       _$_HomeBaseActionController.endAction(_$actionInfo);
     }
@@ -99,7 +142,9 @@ mixin _$HomeStore on _HomeBase, Store {
 pokemonsFuture: ${pokemonsFuture},
 isLoading: ${isLoading},
 length: ${length},
-filter: ${filter}
+maxLength: ${maxLength},
+filter: ${filter},
+caughtFilter: ${caughtFilter}
     ''';
   }
 }

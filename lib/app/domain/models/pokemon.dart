@@ -28,6 +28,9 @@ abstract class _Pokemon with Store {
   bool favorite = false;
 
   @observable
+  int caught = 0;
+
+  @observable
   String? habitat;
 
   @observable

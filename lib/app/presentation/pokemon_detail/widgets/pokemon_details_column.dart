@@ -8,8 +8,9 @@ import 'package:king_tide_challenge/app/presentation/pokemon_detail/widgets/poke
 
 Widget pokemonDetailsColumn(Pokemon pokemon) {
   return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Column(
+    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    child: ListView(
+      shrinkWrap: true,
       children: [
         pokemonDetailsRow('POKEMON ID', "# ${pokemon.id.toString()}"),
         pokemonDetailsRow('POKEMON GENERATION', pokemon.generation),

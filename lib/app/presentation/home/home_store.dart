@@ -10,7 +10,9 @@ class HomeStore extends _HomeBase with _$HomeStore {
 
 enum BaseState { loading, loaded, error }
 
-enum VisibilityFilter { all, favorites }
+enum FavoriteFilter { all, favorites }
+
+enum CaughtFilter { all, caught }
 
 abstract class _HomeBase with Store {
   final PokemonRepository _pokemonRepository;
@@ -32,7 +34,10 @@ abstract class _HomeBase with Store {
   int maxLength = 0;
 
   @observable
-  VisibilityFilter filter = VisibilityFilter.all;
+  FavoriteFilter filter = FavoriteFilter.all;
+
+  @observable
+  CaughtFilter caughtFilter = CaughtFilter.all;
 
   _init() async {
     isLoading = true;
@@ -51,11 +56,20 @@ abstract class _HomeBase with Store {
   }
 
   @action
-  void changeVisibilityFilter() {
-    if (filter == VisibilityFilter.all) {
-      filter = VisibilityFilter.favorites;
+  void changeFavoriteFilter() {
+    if (filter == FavoriteFilter.all) {
+      filter = FavoriteFilter.favorites;
     } else {
-      filter = VisibilityFilter.all;
+      filter = FavoriteFilter.all;
+    }
+  }
+
+  @action
+  void changeCaughtFilter() {
+    if (caughtFilter == CaughtFilter.all) {
+      caughtFilter = CaughtFilter.caught;
+    } else {
+      caughtFilter = CaughtFilter.all;
     }
   }
 }
