@@ -11,7 +11,7 @@ Widget header() {
     child: Container(
       alignment: Alignment.bottomCenter,
       padding: EdgeInsets.only(
-        top: defaultTargetPlatform == TargetPlatform.iOS ? 60 : 20,
+        top: defaultTargetPlatform == TargetPlatform.iOS ? 60 : 32,
       ),
       child: Column(
         children: [
