@@ -1,12 +1,12 @@
 # King Tide Challenge
 
-<h1 style="color:purple;">King Tide Challenge</h1>
+<h1 style="color:orange;">King Tide Challenge</h1>
 
 This is the first version of Pokemon King Tide
 
 ## About this project
 
-<h3 style="color:purple;">About this project</h3>
+<h3 style="color:grape;">About this project</h3>
 
 this version use `null safety` and `flutter_mobx` as state management.
 
@@ -26,6 +26,8 @@ flutter pub run build_runner watch
 ```
 
 ## build an appbundle (DEVELOPMENT) for firebase app distribution
+
+<h3 style="color:tomato;">build an appbundle (DEVELOPMENT) for firebase app distribution</h3>
 
 ```shell
 flutter clean
