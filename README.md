@@ -40,7 +40,8 @@ flutter build appbundle
 
 ## build for iOS (DEVELOPMENT) for testflight
 
-_*{\color{blue}build for iOS (DEVELOPMENT) for testflight}*_
+<!-- _*{\color{blue}build for iOS (DEVELOPMENT) for testflight}*_ -->
+
 ![#aa64c8]`build for iOS (DEVELOPMENT) for testflight`
 
 ```shell
