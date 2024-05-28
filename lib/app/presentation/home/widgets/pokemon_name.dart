@@ -1,36 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get.dart';
 import 'package:king_tide_challenge/app/app_colors.dart';
-import 'package:king_tide_challenge/app/domain/models/pokemon.dart';
 
-Widget pokemonName(Pokemon pokemon) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        '${pokemon.name.capitalize!} ',
-        style: const TextStyle(
-          color: AppColors.blue,
-          fontWeight: FontWeight.bold,
-          fontSize: 28.0,
-          overflow: TextOverflow.ellipsis,
-          letterSpacing: 1.6,
-        ),
-      ),
-      Observer(
-        builder: (_) {
-          return pokemon.favorite
-              ? const Icon(
-                  Icons.favorite,
-                  color: Colors.red,
-                )
-              : const Icon(
-                  Icons.favorite_border,
-                  color: AppColors.blue,
-                );
-        },
-      ),
-    ],
+Widget pokemonName(String name) {
+  return Text(
+    name.capitalize!,
+    style: const TextStyle(
+      color: AppColors.yellow,
+      fontWeight: FontWeight.w900,
+      fontSize: 34.0,
+      overflow: TextOverflow.ellipsis,
+      letterSpacing: 2.4,
+      shadows: [
+        Shadow(offset: Offset(-1.5, -1.5), color: AppColors.blue),
+        Shadow(offset: Offset(1.5, -1.5), color: AppColors.blue),
+        Shadow(offset: Offset(1.5, 1.5), color: AppColors.blue),
+        Shadow(offset: Offset(-1.5, 1.5), color: AppColors.blue),
+      ],
+    ),
   );
 }

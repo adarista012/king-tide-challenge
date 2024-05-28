@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:king_tide_challenge/app/app_colors.dart';
-import 'package:king_tide_challenge/app/app_styles.dart';
 import 'package:king_tide_challenge/app/presentation/home/home_store.dart';
 
 class Header extends StatelessWidget {
@@ -13,54 +12,48 @@ class Header extends StatelessWidget {
 }
 
 Widget header(VisibilityFilter filter, void Function()? onPressed) {
-  return Container(
-    alignment: Alignment.bottomCenter,
-    height: 234,
-    margin: const EdgeInsets.only(bottom: 40.0),
-    padding: const EdgeInsets.only(top: 60),
-    child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            filter == VisibilityFilter.favorites
-                ? IconButton(
-                    onPressed: onPressed,
-                    icon: const Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                      size: 40.0,
-                    )
+  return Expanded(
+    flex: 4,
+    child: Container(
+      alignment: Alignment.bottomCenter,
+      padding: const EdgeInsets.only(top: 60),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              filter == VisibilityFilter.favorites
+                  ? IconButton(
+                      onPressed: onPressed,
+                      icon: const Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                        size: 40.0,
+                      )
 
-                    // Icon(
-                    //   Icons.filter_alt,
-                    //   color: AppColors.white,
-                    // ),
-                    )
-                : IconButton(
-                    onPressed: onPressed,
-                    icon: const Icon(
-                      Icons.favorite_border,
-                      color: AppColors.white,
-                      size: 40.0,
-                    )
+                      // Icon(
+                      //   Icons.filter_alt,
+                      //   color: AppColors.white,
+                      // ),
+                      )
+                  : IconButton(
+                      onPressed: onPressed,
+                      icon: const Icon(
+                        Icons.favorite_border,
+                        color: AppColors.white,
+                        size: 40.0,
+                      )
 
-                    // Icon(
-                    //   Icons.filter_alt_off,
-                    //   color: AppColors.white,
-                    // ),
-                    ),
-          ],
-        ),
-        Text(
-          'King Tide Challenge',
-          textAlign: TextAlign.center,
-          style: AppStyles.titleLargeWhite.copyWith(
-            fontSize: 40.0,
-            wordSpacing: 8,
+                      // Icon(
+                      //   Icons.filter_alt_off,
+                      //   color: AppColors.white,
+                      // ),
+                      ),
+            ],
           ),
-        ),
-      ],
+          Image.asset('assets/images/pokemon_logo.png'),
+        ],
+      ),
     ),
   );
 }

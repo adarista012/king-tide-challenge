@@ -6,7 +6,7 @@ import 'package:king_tide_challenge/app/presentation/home/home_store.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/footer.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/header.dart';
 import 'package:king_tide_challenge/app/presentation/home/widgets/item_loading.dart';
-import 'package:king_tide_challenge/app/presentation/home/widgets/pokemon_item.dart';
+import 'package:king_tide_challenge/app/presentation/home/widgets/pokemon_card.dart';
 import 'package:king_tide_challenge/app/presentation/widgets/build_loading.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,21 +25,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final height = MediaQuery.sizeOf(context).height;
     return Scaffold(
       body: Observer(
-        builder: (_) {
-          return homeStore.isLoading
-              ? buildLoading()
-              : Container(
-                  decoration: AppStyles.gradientDecoration,
-                  child: Column(
-                    children: [
-                      header(
-                        homeStore.filter,
-                        homeStore.changeVisibilityFilter,
-                      ),
-                      SizedBox(
-                        height: 420,
+        builder: (_) => homeStore.isLoading
+            ? buildLoading()
+            : Container(
+                decoration: AppStyles.gradientDecoration,
+                width: width,
+                height: height,
+                child: Column(
+                  children: [
+                    header(homeStore.filter, homeStore.changeVisibilityFilter),
+                    Expanded(
+                      flex: 6,
+                      child: Container(
                         child: homeStore.filter != VisibilityFilter.favorites
                             ? ListView.builder(
                                 controller: controller,
@@ -47,8 +48,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (_, index) {
                                   return index < homeStore.length
-                                      ? pokemonItem(
-                                          homeStore.pokemonsFuture[index])
+                                      ? pokemonCard(
+                                          homeStore.pokemonsFuture[index],
+                                          width,
+                                          height,
+                                        )
                                       : hasMore
                                           ? itemLoading()
                                           : Container();
@@ -58,16 +62,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 scrollDirection: Axis.horizontal,
                                 children: homeStore.pokemonsFuture
                                     .where((p) => p.favorite == true)
-                                    .map((p) => pokemonItem(p))
+                                    .map((p) => pokemonCard(p, width, height))
                                     .toList(),
                               ),
                       ),
-                      Expanded(child: Container()),
-                      footer(),
-                    ],
-                  ),
-                );
-        },
+                    ),
+                    footer(),
+                  ],
+                ),
+              ),
       ),
     );
   }

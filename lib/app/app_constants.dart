@@ -16,15 +16,4 @@ abstract class AppConstants {
                       }
                     }
                   ''';
-  static String QUERY_FETCH_POKEMONS = r'''
-                    query samplePokeAPIquery {
-                      gen3_species: pokemon_v2_pokemonspecies(
-                        limit: 27, 
-                        order_by: {id: asc}
-                      ) {
-                        name
-                        id
-                      }
-                    }
-                  ''';
 }
