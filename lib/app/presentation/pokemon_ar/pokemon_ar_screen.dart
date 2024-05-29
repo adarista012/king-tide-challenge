@@ -20,7 +20,7 @@ class _PokemonArScreenState extends State<PokemonArScreen> {
   bool loadingCamera = false;
   void loadCamera() async {
     setState(() {
-      loadingCamera = true; //
+      loadingCamera = true;
     });
     try {
       cameras = await availableCameras();
@@ -106,10 +106,16 @@ class _PokemonArScreenState extends State<PokemonArScreen> {
                                 width: onchange + 1.6,
                               ),
                               pokemonCatched
-                                  ? Image.network(
-                                      AppConstants.POKEBALL_URL,
-                                      height: 80,
-                                      width: 80,
+                                  ? Positioned(
+                                      bottom: 0,
+                                      top: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: Image.network(
+                                        AppConstants.POKEBALL_URL,
+                                        height: 80,
+                                        width: 80,
+                                      ),
                                     )
                                   : Image.network(
                                       url,

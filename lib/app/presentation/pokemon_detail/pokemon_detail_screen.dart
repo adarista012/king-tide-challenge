@@ -41,15 +41,22 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
             ),
             Column(
               children: [
-                Expanded(child: Container()),
-                pokemonImageLarge(_pokemonStore.pokemon, height, width),
+                Expanded(flex: 2, child: Container()),
+                Expanded(
+                  flex: 4,
+                  child:
+                      pokemonImageLarge(_pokemonStore.pokemon, height, width),
+                ),
                 const SizedBox(height: 8.0),
-                Observer(
-                  builder: (_) {
-                    return _pokemonStore.pokemon.color == null
-                        ? loadingDetails()
-                        : pokemonDetailsColumn(_pokemonStore.pokemon);
-                  },
+                Expanded(
+                  flex: 3,
+                  child: Observer(
+                    builder: (_) {
+                      return _pokemonStore.pokemon.color == null
+                          ? loadingDetails()
+                          : pokemonDetailsColumn(_pokemonStore.pokemon);
+                    },
+                  ),
                 ),
               ],
             ),
