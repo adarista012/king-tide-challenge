@@ -47,5 +47,9 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
     <string>Show the Pokemon selected.</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+    <string>UIInterfaceOrientationPortrait</string>
+</array>
 </dict>
 </plist>
